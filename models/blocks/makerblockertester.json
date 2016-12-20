@@ -1,0 +1,4 @@
+{
+    "parent": "block/cube_all",
+    "textures": { "all": "modularmachines:tester_blocker_maker" }
+}

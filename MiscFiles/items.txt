@@ -1,0 +1,3 @@
+test_item
+test_tube_item
+gold_ingot

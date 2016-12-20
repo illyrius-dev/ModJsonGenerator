@@ -1,0 +1,4 @@
+{
+    "parent": "block/cube_all",
+    "textures": { "all": "modularmachines:failed_block_magic_carpet" }
+}
