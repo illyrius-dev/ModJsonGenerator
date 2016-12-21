@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "modularmachines:blocktest" }
+        "normal": { "model": "samplemod:blocktest" }
     }
 }
