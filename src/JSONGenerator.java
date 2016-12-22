@@ -1,5 +1,3 @@
-package tools;
-
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -98,7 +96,7 @@ public class JSONGenerator
 	
 	public static void processArgs(String[] args) throws Exception
 	{
-		if (args.length == 1)
+		if (args.length == 1 || args.length == 0)
 		{
 			throw new Exception("Not enough arguments");
 		}
@@ -128,6 +126,8 @@ public class JSONGenerator
 				}
 				
 				modID = args[0];
+				
+				return;
 			} 
 			catch (Exception e)
 			{
@@ -144,6 +144,8 @@ public class JSONGenerator
 			{
 				blocksFile = new File(args[1]);
 				itemsFile = new File(args[2]);
+				
+				return;
 			}
 			catch (Exception e)
 			{
@@ -151,6 +153,8 @@ public class JSONGenerator
 				e.printStackTrace();
 			}
 		}
+		
+		throw new Exception("Too many arguments");
 	}
 	
 	public static String getRegistryNameFromUnlocalized(String unlocalizedName)
@@ -171,7 +175,7 @@ public class JSONGenerator
 	{
 		String filePath = getRegistryNameFromUnlocalized(unlocalizedName);
 		
-		if (filePath != "")
+		if (filePath.equals(""))
 		{
 			try
 			{
@@ -188,14 +192,14 @@ public class JSONGenerator
 				    writer = new PrintWriter("models/blocks/" + filePath + ".json", "UTF-8");
 				    writer.println("{");
 				    writer.println("    \"parent\": \"block/cube_all\",");
-				    writer.println("    \"textures\": { \"all\": \"" + modID + ":" + unlocalizedName + "\" }");
+				    writer.println("    \"textures\": { \"all\": \"" + modID + ":blocks/" + unlocalizedName + "\" }");
 				    writer.println("}");
 				    writer.close();
 				    
 				    writer = new PrintWriter("models/items/" + filePath + ".json", "UTF-8");
 				    writer.println("{");
 				    writer.println("    \"parent\": \"block/cube_all\",");
-				    writer.println("    \"textures\": { \"all\": \"" + modID + ":" + unlocalizedName + "\" }");
+				    writer.println("    \"textures\": { \"all\": \"" + modID + ":blocks/" + unlocalizedName + "\" }");
 				    writer.println("}");
 				    writer.close();
 				}
