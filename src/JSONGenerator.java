@@ -175,7 +175,7 @@ public class JSONGenerator
 	{
 		String filePath = getRegistryNameFromUnlocalized(unlocalizedName);
 		
-		if (filePath.equals(""))
+		if (!filePath.equals(""))
 		{
 			try
 			{
@@ -207,21 +207,9 @@ public class JSONGenerator
 				{
 					PrintWriter writer = new PrintWriter("models/items/" + filePath + ".json", "UTF-8");
 				    writer.println("{");
-				    writer.println("    \"parent\": \"builtin/generated\",");
+				    writer.println("    \"parent\": \"item/generated\",");
 				    writer.println("    \"textures\": {");
 				    writer.println("        \"layer0\": \"" + modID + ":items/" + unlocalizedName + "\"");
-				    writer.println("    },");
-				    writer.println("    \"display\": {");
-				    writer.println("        \"thirdperson\": {");
-				    writer.println("            \"rotation\": [ -90, 0, 0 ],");
-				    writer.println("            \"translation\": [ 0, 1, -3 ],");
-				    writer.println("            \"scale\": [ 0.55, 0.55, 0.55 ]");
-				    writer.println("        },");
-				    writer.println("        \"firstperson\": {");
-				    writer.println("            \"rotation\": [ 0, -135, 25 ],");
-				    writer.println("            \"translation\": [ 0, 4, 2 ],");
-				    writer.println("            \"scale\": [ 1.7, 1.7, 1.7 ]");
-				    writer.println("        }");
 				    writer.println("    }");
 				    writer.println("}");
 				    writer.close();
